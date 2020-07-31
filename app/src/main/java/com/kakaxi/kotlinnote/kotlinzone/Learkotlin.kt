@@ -5,8 +5,8 @@ import kotlin.math.max
 fun main() {
 //------------------infix函数----------------------------------------
     //infix,创建infix.kt文件定义infix函数
-    val list = listOf("kk" to 1, "pp" to 2)
-    if (list.contains("2")) {
+    val list = listOf("kk", "pp")
+    if (list.contains("pp")) {
 
     }
     //infix写法

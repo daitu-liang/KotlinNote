@@ -11,6 +11,7 @@ import androidx.core.content.edit
 import com.kakaxi.kotlinnote.R
 import com.kakaxi.kotlinnote.kotlinzone.*
 import kotlinx.android.synthetic.main.activity_home_des.*
+import kotlin.concurrent.thread
 
 class HomeDesActivity : AppCompatActivity(),View.OnClickListener {
     //kotlin规定 companion object内定义的方法都可以采用类似Java静态方法的形式调用
@@ -78,8 +79,19 @@ class HomeDesActivity : AppCompatActivity(),View.OnClickListener {
                 MyClass().getP()
                 val input=et.text.toString()
                 Toast.makeText(this,"button2--->${input}顶层$LOG_TAG",Toast.LENGTH_SHORT).show()
-
+                Log.i(TAG, "exampleTest主线程: "+Thread.currentThread().name)
+                exampleTest1()
             }
         }
+    }
+
+    private fun exampleTest1() {
+       thread {
+           Log.i(TAG, "exampleTest2: "+Thread.currentThread().name)
+       }
+        Thread{
+            Log.i(TAG, "exampleTest3: "+Thread.currentThread().name)
+        }.start()
+
     }
 }
