@@ -34,6 +34,7 @@ class HomeDesActivity : AppCompatActivity(),View.OnClickListener {
             context.startActivity(intent)
         }
     }
+
     //延迟初始化lateinit
     private lateinit var person: Person
     override fun onCreate(savedInstanceState: Bundle?) {
