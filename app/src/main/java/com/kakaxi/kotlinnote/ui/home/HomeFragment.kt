@@ -43,7 +43,13 @@ class HomeFragment : Fragment() {
 
         btnTip.setOnClickListener{
             Toast.makeText(activity,"toast",Toast.LENGTH_LONG).show()
-            activity?.let { it1 -> HomeDesActivity.actionStart(it1,"参数") }
+//            activity?.let { it1 -> HomeDesActivity.actionStart(it1,"参数") }
+            activity?.let { it1 ->
+                com.kakaxi.kotlinnote.kotlinzone.startActivity<HomeDesActivity>(it1){
+                    putExtra("userId",12)
+                    putExtra("name","apple")
+                }
+            }
         }
     }
     override fun onResume() {

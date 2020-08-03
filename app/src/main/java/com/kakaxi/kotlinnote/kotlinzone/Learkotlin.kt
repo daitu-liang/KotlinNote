@@ -1,8 +1,15 @@
 package com.kakaxi.kotlinnote.kotlinzone
 
 import kotlin.math.max
-
+inline fun<reified T> getGenericType()=T::class.java
 fun main() {
+
+
+//------------------泛型石化----------------------------------------
+    println(getGenericType<String>())
+    println(getGenericType<Double>())
+
+
 //------------------infix函数----------------------------------------
     //infix,创建infix.kt文件定义infix函数
     val list = listOf("kk", "pp")
