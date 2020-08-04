@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.core.content.edit
 import com.kakaxi.kotlinnote.R
 import com.kakaxi.kotlinnote.kotlinzone.*
+import com.kakaxi.kotlinnote.untils.showSnackbar
+import com.kakaxi.kotlinnote.untils.showToast
 import kotlinx.android.synthetic.main.activity_home_des.*
 import kotlin.concurrent.thread
 
@@ -78,7 +80,6 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
 
         when (v?.id) {
             R.id.button1 -> {
-                Toast.makeText(this, "button1=$TAG", Toast.LENGTH_SHORT).show()
                 startActivity<Testctivity>(this) {
                     putExtra("userId", 12323)
                     putExtra("name", "apple")
@@ -89,9 +90,18 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
             R.id.button2 -> {
                 MyClass().getP()
                 val input = et.text.toString()
-                Toast.makeText(this, "button2--->${input}顶层$LOG_TAG", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "button2--->${input}顶层$LOG_TAG", Toast.LENGTH_SHORT).show()
                 Log.i(TAG, "exampleTest主线程: " + Thread.currentThread().name)
-                exampleTest1()
+                "button2--->${input}顶层$LOG_TAG".showToast(this,Toast.LENGTH_LONG)
+//                exampleTest1()
+            }
+            R.id.button3 -> {
+//                Toast.makeText(this, "button1=$TAG", Toast.LENGTH_SHORT).show()
+//                "button1=$TAG".showToast(this)
+//                R.string.app_name.showToast(this)
+                button1.showSnackbar("kkkaxi","点击"){
+                    "显示toast".showToast(this)
+                }
             }
         }
     }
