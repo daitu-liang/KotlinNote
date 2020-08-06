@@ -4,30 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeDesActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeDesActivity">
 
     <EditText
         android:id="@+id/et"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:hint="请输入"/>
+        android:hint="请输入" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HomeDesActivity"
-      />
+        android:text="HomeDesActivity" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HomeDesActivity"
-        />
+        android:text="HomeDesActivity" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="测试事例"
-        />
+        android:text="测试事例" />
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:hint="@string/app_name"/>
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="加" />
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="置0" />
+    <Button
+    android:id="@+id/button6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="获取trans" />
+
 </LinearLayout>

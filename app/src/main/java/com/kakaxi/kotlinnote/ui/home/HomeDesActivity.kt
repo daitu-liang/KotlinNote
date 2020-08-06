@@ -7,7 +7,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.content.edit
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+
 import com.kakaxi.kotlinnote.R
 import com.kakaxi.kotlinnote.kotlinzone.*
 import com.kakaxi.kotlinnote.untils.showSnackbar
@@ -46,11 +51,16 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
 
     //延迟初始化lateinit
     private lateinit var person: Person
+    private lateinit var desViewModel: HomeDesViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_des)
+        lifecycle.addObserver(MyObserver())
+//        desViewModel=ViewModelProvider(this).get(HomeDesViewModel::class.java)
+        desViewModel=ViewModelProvider(this,HomeDesViewModelFactory(40))[HomeDesViewModel::class.java]
         button1.setOnClickListener(this)
         button2.setOnClickListener(this)
+        button3.setOnClickListener(this)
 
         //避免重复初始化
         if (!::person.isInitialized) {
@@ -73,6 +83,32 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
             putString("name", "平安经")
             putLong("userId", 2343)
         }
+
+        button4.setOnClickListener {
+            thread {//子线程必须采用postValue，否则奔溃；主线程可采用setValue
+                desViewModel.addNum()
+            }
+
+        }
+        button5.setOnClickListener {
+           desViewModel.clearNum()
+        }
+
+        button6.setOnClickListener {
+            var userId=(0..5000).random().toString()
+            desViewModel.getUserInfo(userId)
+        }
+        desViewModel.counter.observe(this, Observer {
+            it->
+            et.setText(it.toString())
+        })
+        desViewModel.userName.observe(this, Observer {
+            it->tv_des.text=it.toString()
+        })
+
+        desViewModel.userTran.observe(this, Observer {
+            user->tv_des.text=user.toString()
+        })
     }
 
     override fun onClick(v: View?) {
@@ -102,9 +138,12 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
                 button1.showSnackbar("kkkaxi","点击"){
                     "显示toast".showToast(this)
                 }
+
             }
         }
     }
+
+
 
     private fun exampleTest1() {
         thread {
