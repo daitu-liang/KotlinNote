@@ -1,11 +1,15 @@
 package com.kakaxi.kotlinnote.kotlinzone
 
-import com.kakaxi.kotlinnote.untils.MathUntils
+
+import com.kakaxi.kotlinnote.network.Kakaxi
+import com.kakaxi.kotlinnote.network.WWxi
 import kotlin.math.max
 inline fun<reified T> getGenericType()=T::class.java
 fun main() {
 
-    println(MathUntils.max(1.5,444.8,2.9,66.4,3.98))
+    Kakaxi().go()
+    WWxi().go()
+//    println(MathUntils.max(1.5,444.8,2.9,66.4,3.98))
 /*
 //------------------泛型石化----------------------------------------
     println(getGenericType<String>())

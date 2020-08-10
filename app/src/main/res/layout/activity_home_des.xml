@@ -5,8 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="?android:attr/colorBackground"
     tools:context=".ui.home.HomeDesActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="主题颜色：安卓10,暗黑模式"
+        android:textSize="24sp"
+        android:textColor="?android:attr/textColorPrimary"
+        android:padding="@dimen/activity_horizontal_margin"/>
     <EditText
         android:id="@+id/et"
         android:layout_width="match_parent"

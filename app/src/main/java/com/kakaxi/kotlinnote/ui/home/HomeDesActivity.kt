@@ -128,7 +128,7 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
                 val input = et.text.toString()
 //                Toast.makeText(this, "button2--->${input}顶层$LOG_TAG", Toast.LENGTH_SHORT).show()
                 Log.i(TAG, "exampleTest主线程: " + Thread.currentThread().name)
-                "button2--->${input}顶层$LOG_TAG".showToast(this,Toast.LENGTH_LONG)
+                "button2--->${input}顶层$LOG_TAG".showToast(Toast.LENGTH_LONG)
 //                exampleTest1()
             }
             R.id.button3 -> {
@@ -136,7 +136,7 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
 //                "button1=$TAG".showToast(this)
 //                R.string.app_name.showToast(this)
                 button1.showSnackbar("kkkaxi","点击"){
-                    "显示toast".showToast(this)
+                    "显示toast".showToast()
                 }
 
             }

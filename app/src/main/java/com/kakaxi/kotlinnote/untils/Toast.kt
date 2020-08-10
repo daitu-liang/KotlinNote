@@ -2,6 +2,7 @@ package com.kakaxi.kotlinnote.untils
 
 import android.content.Context
 import android.widget.Toast
+import com.kakaxi.kotlinnote.app.NoteApplication
 import java.time.Duration
 
 /**
@@ -11,10 +12,10 @@ import java.time.Duration
  * Int 资源文件内容string.xml
  */
 
-fun String.showToast(context: Context,duration: Int=Toast.LENGTH_SHORT){
-    Toast.makeText(context,this,duration).show()
+fun String.showToast(duration: Int=Toast.LENGTH_SHORT){
+    Toast.makeText(NoteApplication.context,this,duration).show()
 }
 
-fun Int.showToast(context: Context,duration: Int=Toast.LENGTH_SHORT){
-    Toast.makeText(context,this,duration).show()
+fun Int.showToast(duration: Int=Toast.LENGTH_SHORT){
+    Toast.makeText(NoteApplication.context,this,duration).show()
 }
