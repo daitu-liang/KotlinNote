@@ -14,13 +14,15 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 
 import com.kakaxi.kotlinnote.R
+import com.kakaxi.kotlinnote.base.BaseActivity
 import com.kakaxi.kotlinnote.kotlinzone.*
-import com.kakaxi.kotlinnote.untils.showSnackbar
-import com.kakaxi.kotlinnote.untils.showToast
+import com.kakaxi.kotlinnote.utils.showSnackbar
+import com.kakaxi.kotlinnote.utils.showToast
+
 import kotlinx.android.synthetic.main.activity_home_des.*
 import kotlin.concurrent.thread
 
-class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
+class HomeDesActivity :  BaseActivity() , View.OnClickListener {
     //kotlin规定 companion object内定义的方法都可以采用类似Java静态方法的形式调用
     companion object {
         const val TAG = "HomeDesActivity"
@@ -51,13 +53,14 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
 
     //延迟初始化lateinit
     private lateinit var person: Person
-    private lateinit var desViewModel: HomeDesViewModel
+//    private lateinit var desViewModel: HomeDesViewModel
+    val desViewModel by lazy { ViewModelProvider(this).get(HomeDesViewModel::class.java) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_des)
         lifecycle.addObserver(MyObserver())
 //        desViewModel=ViewModelProvider(this).get(HomeDesViewModel::class.java)
-        desViewModel=ViewModelProvider(this,HomeDesViewModelFactory(40))[HomeDesViewModel::class.java]
+//        desViewModel=ViewModelProvider(this,HomeDesViewModelFactory(40))[HomeDesViewModel::class.java]
         button1.setOnClickListener(this)
         button2.setOnClickListener(this)
         button3.setOnClickListener(this)
@@ -109,6 +112,7 @@ class HomeDesActivity : AppCompatActivity(), View.OnClickListener {
         desViewModel.userTran.observe(this, Observer {
             user->tv_des.text=user.toString()
         })
+
     }
 
     override fun onClick(v: View?) {

@@ -1,4 +1,4 @@
-package com.kakaxi.kotlinnote.untils
+package com.kakaxi.kotlinnote.utils
 
 import android.view.View
 import android.widget.Toast

@@ -3,13 +3,23 @@ package com.kakaxi.kotlinnote.kotlinzone
 
 import com.kakaxi.kotlinnote.network.Kakaxi
 import com.kakaxi.kotlinnote.network.WWxi
+import com.kakaxi.kotlinnote.utils.MathUntils
 import kotlin.math.max
 inline fun<reified T> getGenericType()=T::class.java
 fun main() {
 
-    Kakaxi().go()
-    WWxi().go()
-//    println(MathUntils.max(1.5,444.8,2.9,66.4,3.98))
+
+    var arr=IntArray(5){it*1}
+
+    for (i in arr){
+        println("arr=${arr[i]}")
+    }
+
+/*    Kakaxi().go()
+    WWxi().go()*/
+
+
+    println(MathUntils.max(1.5,444.8,2.9,66.4,3.98))
 /*
 //------------------泛型石化----------------------------------------
     println(getGenericType<String>())

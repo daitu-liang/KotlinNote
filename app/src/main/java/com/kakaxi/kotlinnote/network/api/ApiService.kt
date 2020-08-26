@@ -1,5 +1,6 @@
 package com.kakaxi.kotlinnote.network.api
 
+import com.kakaxi.kotlinnote.model.UserInfo
 import com.kakaxi.kotlinnote.network.Data
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -21,4 +22,9 @@ interface ApiService {
     //类型4  get: http:xxxxx/data/create
     @POST("data/create")
     fun creatUser(@Body data: Data): Call<ResponseBody>
+
+
+    @FormUrlEncoded
+    @POST(NetApi.USER_LOGIN)
+    fun getLogin(@FieldMap map: Map<String, String>):Call<UserInfo>
 }
