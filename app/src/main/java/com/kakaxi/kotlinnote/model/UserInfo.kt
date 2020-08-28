@@ -1,6 +1,6 @@
 package com.kakaxi.kotlinnote.model
 
-class UserInfo:BaseResponse(){
-    val realName:String =""
-    val token:String=""
-}
+data class UserInfo(
+    val realName: String,
+    val token: String
+) : BaseResponse()

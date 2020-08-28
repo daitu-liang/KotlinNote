@@ -26,5 +26,5 @@ interface ApiService {
 
     @FormUrlEncoded
     @POST(NetApi.USER_LOGIN)
-    fun getLogin(@FieldMap map: Map<String, String>):Call<UserInfo>
+    fun getLogin(@Field("userName") name:String,@Field("password") pwd:String):Call<UserInfo>
 }

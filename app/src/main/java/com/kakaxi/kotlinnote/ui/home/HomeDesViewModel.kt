@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
-import com.kakaxi.kotlinnote.kotlinzone.Repository
+import com.kakaxi.kotlinnote.kotlinzone.MyRepository
 import com.kakaxi.kotlinnote.kotlinzone.User
 
 class HomeDesViewModel(tipNum: Int) : ViewModel() {
@@ -19,7 +19,7 @@ class HomeDesViewModel(tipNum: Int) : ViewModel() {
     private val tranUserLiveData = MutableLiveData<String>()
     val userTran: LiveData<User> = Transformations.switchMap(tranUserLiveData) {//Transformations
             userId ->
-        Repository.getUserInfo(userId)
+        MyRepository.getUserInfo(userId)
     }
 
     fun getUserInfo(userId: String) {
@@ -31,7 +31,7 @@ class HomeDesViewModel(tipNum: Int) : ViewModel() {
     val noParamsuserTran: LiveData<User> =
         Transformations.switchMap(noParamsUserLiveData) {//Transformations
                 userId ->
-            Repository.getUserInfo()
+            MyRepository.getUserInfo()
         }
 
     fun getUserInfo() {

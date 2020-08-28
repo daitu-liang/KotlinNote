@@ -21,15 +21,15 @@ class LoginDataSource {
             val map= mapOf("userName" to username,"password" to password,
                 "deviceType" to 1,"deviceNo" to "de")//不可变
             RetrofitClient.create<ApiService>()
-                .getLogin(map)
+                .getLogin(username,password)
                 .enqueue(object : retrofit2.Callback<UserInfo> {
 
                     override fun onFailure(call: Call<UserInfo>, t: Throwable) {
 
                     }
-
-                    override fun onResponse(call: Call<UserInfo>, response: Response<Data>) {
-
+                    override fun onResponse(call: Call<UserInfo>, response: Response<UserInfo>) {
+                        TODO("Not yet implemented")
+//                        return Result.Success(response.toString())
                     }
                 })
             return Result.Success(fakeUser)

@@ -14,7 +14,7 @@ import retrofit2.Response
 import retrofit2.await
 import java.util.ArrayList
 
-
+// RetrofitClient.create(ApiService::class.java)
 class Testctivity : AppCompatActivity() {
     private lateinit var mAdapter: FunAdapter
     override fun onCreate(savedInstanceState: Bundle?) {

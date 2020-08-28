@@ -57,6 +57,7 @@ class LoginActivity : BaseActivity() {
 
             loading.visibility = View.GONE
             if (loginResult.error != null) {
+
                 showLoginFailed(loginResult.error)
             }
             if (loginResult.success != null) {
