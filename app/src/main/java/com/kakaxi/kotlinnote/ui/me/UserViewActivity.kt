@@ -14,6 +14,7 @@ class UserViewActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_view)
+
         userWiewModel.userLivaData.observe(this, Observer {  userinfo->
             //获取网络响应结果
           val user=userinfo.getOrNull()

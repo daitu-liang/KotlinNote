@@ -4,22 +4,28 @@ package com.kakaxi.kotlinnote.kotlinzone
 import com.kakaxi.kotlinnote.network.Kakaxi
 import com.kakaxi.kotlinnote.network.WWxi
 import com.kakaxi.kotlinnote.utils.MathUntils
+import kotlinx.android.synthetic.main.activity_login.view.*
 import kotlin.math.max
 inline fun<reified T> getGenericType()=T::class.java
 fun main() {
+    var p=Person(name="Mingren" ,age=92) //省略new
 
+
+//    testNUll(p)
+/*
 
     var arr=IntArray(5){it*1}
 
     for (i in arr){
         println("arr=${arr[i]}")
     }
+*/
 
 /*    Kakaxi().go()
     WWxi().go()*/
 
 
-    println(MathUntils.max(1.5,444.8,2.9,66.4,3.98))
+//    println(MathUntils.max(1.5,444.8,2.9,66.4,3.98))
 /*
 //------------------泛型石化----------------------------------------
     println(getGenericType<String>())
@@ -127,6 +133,12 @@ fun main() {
     while(n<4) println(++n)*/
 
 }
+fun  testNUll( user:Person){
+    println("-------1--->"+user.name)
+    println("---d->$user.name")
+}
+
+
 fun checkNumByName(name: String) = when {
     name.startsWith("k") -> 534
     name == "ka" -> 44

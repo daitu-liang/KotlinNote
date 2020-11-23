@@ -12,6 +12,7 @@ class UserViewModel:ViewModel() {
     private val tranUserLiveData = MutableLiveData<LoggedInUserView>()
     val userLivaData=Transformations.switchMap(tranUserLiveData){
       it->Repository.goLogin(it.displayName,it.displayName)
+
     }
     fun getUserInfo(name:String){
         tranUserLiveData.value=LoggedInUserView(name)
